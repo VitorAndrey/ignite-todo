@@ -1,0 +1,90 @@
+/* Header */
+.header {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  background: var(--gray-700);
+
+  width: 100%;
+  height: 12.5rem;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.logo h1 {
+  color: var(--blue-300);
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+.logo span {
+  color: var(--purple-500);
+}
+
+/* Form */
+.form {
+  position: absolute;
+  bottom: 0;
+
+  margin-bottom: -1.5rem;
+  width: 100%;
+}
+.inputContainer {
+  max-width: 46rem;
+  width: 95%;
+  margin: 0 auto;
+
+  gap: 0.5rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.form button {
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+
+  height: 3rem;
+  padding: 0.875rem;
+
+  background: var(--blue-500);
+  color: var(--gray-100);
+
+  transition: all 0.3s ease;
+}
+.form button:hover {
+  background: var(--blue-300);
+}
+.form input {
+  border-radius: 8px;
+  padding: 0.875rem;
+  height: 3rem;
+  background: var(--gray-500);
+  border: none;
+  outline: none;
+  flex: 1;
+}
+.form input:valid {
+  outline: 1px solid var(--purple-500);
+  color: var(--gray-100);
+}
+
+/* Media Querrys */
+@media screen and (max-width: 364px) {
+  .form {
+    margin-bottom: -5rem;
+  }
+  .inputContainer {
+    flex-direction: column;
+  }
+}

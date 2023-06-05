@@ -1,0 +1,46 @@
+/* Task Card */
+.taskCard {
+  border-radius: 8px;
+  background: var(--gray-500);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+/* Task Card Content */
+.taskCardContent {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem;
+  cursor: pointer;
+  padding-right: 2rem;
+}
+.circle,
+.checkedCircle {
+  width: 1.3rem;
+}
+.taskCardContent p {
+  flex: 1;
+  font-size: 0.875rem;
+}
+
+/* Trash Container */
+.trashContainer {
+  box-sizing: unset;
+  width: 3rem;
+  padding: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.trashContainer:hover .trash {
+  background: var(--gray-400);
+  outline: 4px solid var(--gray-400);
+  border-radius: 2px;
+  color: var(--red-400);
+}
+.completedText {
+  text-decoration: line-through;
+}
