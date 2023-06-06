@@ -3,6 +3,9 @@ import styles from "./Task.module.css";
 
 import { Trash } from "phosphor-react";
 
+import check from "../assets/check.svg";
+import checked from "../assets/checked.svg";
+
 interface TaskProps {
   onIsCompleted: (isCompleted: boolean) => void;
   onRemoveTask: (commentToRemove: string) => void;
@@ -30,9 +33,9 @@ export function Task({ onIsCompleted, content, id, onRemoveTask, removeOne }: Ta
     <div className={styles.taskCard}>
       <div className={styles.taskCardContent} onClick={handleIsCompleted}>
         {isCompleted ? (
-          <img src="src/assets/checked.svg" className={styles.checkedCircle} />
+          <img src={checked} className={styles.checkedCircle} />
         ) : (
-          <img src="src/assets/check.svg" className={styles.circle} />
+          <img src={check} className={styles.circle} />
         )}
 
         <p className={isCompleted ? styles.completedText : ""}>{content}</p>

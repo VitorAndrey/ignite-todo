@@ -4,6 +4,8 @@ import { useState } from "react";
 
 import { Tasks } from "../data/tasks";
 
+import clipBord from "../assets/Clipboard.svg";
+
 interface TaskListProps {
   tasks: Tasks[];
   onRemoveTask: (commentToRemove: string) => void;
@@ -43,7 +45,7 @@ export function TasksList({ tasks, onRemoveTask }: TaskListProps) {
       </header>
       {tasks.length === 0 ? (
         <div className={styles.tasksList}>
-          <img src="src/assets/Clipboard.svg" alt="clipboard" />
+          <img src={clipBord} alt="clipboard" />
           <strong>Você ainda não tem tarefas cadastradas</strong>
           <p>Crie tarefas e organize seus itens a fazer</p>
         </div>
