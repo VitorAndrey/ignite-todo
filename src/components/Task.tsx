@@ -5,19 +5,25 @@ import { Trash } from "phosphor-react";
 
 interface TaskProps {
   onIsCompleted: (isCompleted: boolean) => void;
-  content: string;
   onRemoveTask: (commentToRemove: string) => void;
+  removeOne: () => void;
+  content: string;
+  id: string;
 }
 
-export function Task({ onIsCompleted, content, onRemoveTask }: TaskProps) {
+export function Task({ onIsCompleted, content, id, onRemoveTask, removeOne }: TaskProps) {
   const [isCompleted, setIsCompleted] = useState(false);
 
   function handleIsCompleted() {
     setIsCompleted((prevState) => !prevState);
     onIsCompleted(isCompleted);
   }
+
   function handleRemoveTask() {
-    onRemoveTask(content);
+    if (isCompleted) {
+      removeOne();
+    }
+    onRemoveTask(id);
   }
 
   return (
@@ -31,8 +37,8 @@ export function Task({ onIsCompleted, content, onRemoveTask }: TaskProps) {
 
         <p className={isCompleted ? styles.completedText : ""}>{content}</p>
       </div>
-      <div className={styles.trashContainer}>
-        <Trash size={20} className={styles.trash} onClick={handleRemoveTask} />
+      <div className={styles.trashContainer} onClick={handleRemoveTask}>
+        <Trash size={20} className={styles.trash} />
       </div>
     </div>
   );

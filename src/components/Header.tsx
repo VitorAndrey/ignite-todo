@@ -1,5 +1,7 @@
 import styles from "./Header.module.css";
 
+import { ChangeEvent, FormEvent, useState } from "react";
+
 import { PlusCircle } from "phosphor-react";
 
 interface HeaderProps {
@@ -7,8 +9,16 @@ interface HeaderProps {
 }
 
 export function Header({ onAddTask }: HeaderProps) {
-  function handleAddTask() {
-    onAddTask("newTask");
+  const [taskValue, setTaskValue] = useState("");
+
+  function handleAddTask(event: FormEvent) {
+    event.preventDefault();
+    onAddTask(taskValue);
+    setTaskValue("");
+  }
+
+  function handleChange(event: ChangeEvent<HTMLInputElement>) {
+    setTaskValue(event.target.value);
   }
 
   return (
@@ -21,7 +31,13 @@ export function Header({ onAddTask }: HeaderProps) {
       </div>
       <form className={styles.form} onSubmit={handleAddTask}>
         <div className={styles.inputContainer}>
-          <input type="text" placeholder="Adicione uma nova tarefa" required />
+          <input
+            type="text"
+            placeholder="Adicione uma nova tarefa"
+            required
+            onChange={handleChange}
+            value={taskValue}
+          />
           <button>
             Criar
             <PlusCircle size={20} />

@@ -39,6 +39,7 @@
   align-items: center;
   justify-content: center;
   height: 15.25rem;
+  text-align: center;
 }
 .tasksList img {
   width: 3.5rem;

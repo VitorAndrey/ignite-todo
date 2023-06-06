@@ -20,6 +20,10 @@ export function TasksList({ tasks, onRemoveTask }: TaskListProps) {
     }
   }
 
+  function removeOne() {
+    setCompletedTasks((prev) => prev - 1);
+  }
+
   return (
     <section className={styles.tasks}>
       <header>
@@ -49,7 +53,9 @@ export function TasksList({ tasks, onRemoveTask }: TaskListProps) {
             onIsCompleted={onIsCompleted}
             key={task.id}
             content={task.content}
+            id={task.id}
             onRemoveTask={onRemoveTask}
+            removeOne={removeOne}
           />
         ))
       )}

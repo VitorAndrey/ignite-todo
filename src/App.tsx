@@ -6,14 +6,26 @@ import { TasksList } from "./components/TasksList";
 
 import { tasks } from "./data/tasks";
 
+interface NewTaskCreated {
+  content: string;
+  id: string;
+}
+
 function App() {
   const [taskList, setTaskList] = useState(tasks);
 
-  function onRemoveTask(taskToRemove: string) {
-    console.log(taskToRemove);
+  function onRemoveTask(id: string) {
+    const listWithoutDeleted = taskList.filter((task) => task.id !== id);
+    setTaskList(listWithoutDeleted);
   }
   function onAddTask(newTask: string) {
-    console.log(newTask);
+    const id = taskList.length + 1;
+
+    const newTaskCreated: NewTaskCreated = {
+      id: id.toString(),
+      content: newTask,
+    };
+    setTaskList([...taskList, newTaskCreated]);
   }
 
   return (
